@@ -1,47 +1,45 @@
 /* Basic reset */
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* HTML and body setup */
 html, body {
     height: 100%;
     font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
-}
-
-/* Body setup to ensure the page is fully flexible */
-body {
     background-color: #f0f0f0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;  /* Ensures the page takes at least full viewport height */
 }
 
-/* Main container to hold buttons */
+/* Container for the main content */
 .container {
-    padding: 20px;
     display: flex;
     flex-direction: column;
-    flex-grow: 1;  /* Ensures the container takes up available space */
-    justify-content: space-between;  /* Ensures the footer stays at the bottom */
+    min-height: 100vh; /* Ensures the page takes at least full viewport height */
+    padding: 20px;
+    flex-grow: 1; /* Allows the container to grow and fill the available space */
+    justify-content: space-between; /* Ensures footer stays at the bottom */
 }
 
-/* Flexbox grid layout for buttons */
+/* Button grid layout */
 .buttons {
     display: flex;
-    flex-wrap: wrap;  /* Allow items to wrap onto the next line */
-    gap: 20px;  /* Space between items */
-    flex-grow: 1;  /* Makes the buttons container take up remaining space */
-    overflow-y: auto;  /* Ensures scrolling if necessary */
+    flex-wrap: wrap;
+    gap: 20px; /* Spacing between items */
+    flex-grow: 1; /* Allows the buttons container to fill the remaining space */
+    overflow-y: auto; /* Ensures scrolling if necessary */
 }
 
 /* Button item styling */
 .button-item {
-    flex: 1 0 21%;  /* Each item takes up 21% of the container (4 items per row) */
-    min-width: 180px;  /* Ensure they don't shrink too much */
+    flex: 1 0 21%; /* 21% width per item, adjusting for 4 items per row */
+    min-width: 180px; /* Prevents buttons from shrinking too much */
+    max-width: 240px; /* Prevents buttons from growing too large */
     text-align: center;
     background-color: white;
     border-radius: 8px;
@@ -49,8 +47,8 @@ body {
     padding: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: center;  /* Center content inside button items */
-    outline: 1px solid #333; /* Thinner outline, change color as needed */
+    justify-content: center;
+    outline: 1px solid #ddd; /* Consistent outline color */
 }
 
 /* Button styling */
@@ -64,14 +62,15 @@ button {
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s ease; /* Added transform for better user feedback */
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #388E3C; /* Increased contrast for hover state */
+    transform: translateY(-2px); /* Slight lift effect on hover */
 }
 
-/* Input styling */
+/* Input fields */
 input {
     width: 100%;
     padding: 8px;
@@ -80,7 +79,7 @@ input {
     border: 1px solid #ddd;
 }
 
-/* Footer fixed at the bottom */
+/* Footer styling */
 footer {
     display: flex;
     justify-content: center;
@@ -92,6 +91,7 @@ footer {
     bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 10; /* Ensures footer stays on top */
 }
 
 footer button {
@@ -110,23 +110,24 @@ footer button:hover {
 
 /* Responsive design */
 @media (max-width: 768px) {
+    /* 2 columns on tablets */
     .buttons {
-        /* 2 columns on tablets */
-        flex-direction: row; /* Switch to row layout for better wrapping */
+        flex-direction: row; /* Change to row layout for better wrapping */
     }
 
     .button-item {
-        flex: 1 0 45%;  /* Adjust each item to take up 45% of the width on tablets */
+        flex: 1 0 45%;  /* Adjust each item to take up 45% of the width */
     }
 }
 
 @media (max-width: 480px) {
+    /* 1 column on phones */
     .buttons {
-        /* 1 column on phones */
-        flex-direction: column; /* Stack items in a single column on smaller screens */
+        flex-direction: column; /* Stack items in a single column */
     }
 
     .button-item {
-        flex: 1 0 90%;  /* Adjust each item to take up 90% on phones */
+        flex: 1 0 90%; /* Adjust width for mobile screens */
+        margin-bottom: 10px; /* Add spacing between stacked buttons */
     }
 }
