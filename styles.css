@@ -16,118 +16,84 @@ html, body {
     background-color: #f0f0f0;
 }
 
-/* Container for the main content */
+/* Container with a white background and proper centering */
 .container {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensures the page takes at least full viewport height */
+    min-height: 100vh;
     padding: 20px;
-    flex-grow: 1; /* Allows the container to grow and fill the available space */
-    justify-content: space-between; /* Ensures footer stays at the bottom */
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    background-color: white;  /* White background */
+    border-radius: 8px;       /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
-/* Button grid layout */
+/* Buttons layout */
 .buttons {
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Spacing between items */
-    flex-grow: 1; /* Allows the buttons container to fill the remaining space */
-    overflow-y: auto; /* Ensures scrolling if necessary */
-}
-
-/* Button item styling */
-.button-item {
-    flex: 1 0 21%; /* 21% width per item, adjusting for 4 items per row */
-    min-width: 180px; /* Prevents buttons from shrinking too much */
-    max-width: 240px; /* Prevents buttons from growing too large */
-    text-align: center;
-    background-color: white;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    outline: 1px solid #ddd; /* Consistent outline color */
+    gap: 20px;
+    justify-content: center; /* Center buttons horizontally */
+    margin-top: 20px;
 }
 
 /* Button styling */
 button {
-    width: 100%;
-    padding: 10px;
-    margin: 5px 0;
+    padding: 12px 25px;
     background-color: #4CAF50;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s ease; /* Added transform for better user feedback */
+    transition: background-color 0.3s, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Button shadow for depth */
 }
 
+/* Button hover effect */
 button:hover {
-    background-color: #388E3C; /* Increased contrast for hover state */
-    transform: translateY(-2px); /* Slight lift effect on hover */
+    background-color: #388E3C;
+    transform: translateY(-2px);
 }
 
-/* Input fields */
-input {
-    width: 100%;
-    padding: 8px;
-    margin-top: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+/* Button: active (clicked) effect */
+button:active {
+    transform: translateY(0);
+    background-color: #2C6B2F; /* Darker shade on click */
 }
 
-/* Footer styling */
-footer {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 10px 0;
-    background-color: #333;
-    color: white;
-    position: sticky;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
-    z-index: 10; /* Ensures footer stays on top */
+/* Button focus effect */
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Focus ring for accessibility */
 }
 
-footer button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #008CBA;
-    color: white;
-    border: none;
-    border-radius: 5px;
+/* Input file styling - hidden but accessible */
+input[type="file"] {
+    display: none;
 }
 
-footer button:hover {
-    background-color: #007B9D;
-}
-
-/* Responsive design */
+/* Responsive design for smaller screens */
 @media (max-width: 768px) {
-    /* 2 columns on tablets */
-    .buttons {
-        flex-direction: row; /* Change to row layout for better wrapping */
+    .container {
+        padding: 15px;  /* Less padding for smaller screens */
     }
 
-    .button-item {
-        flex: 1 0 45%;  /* Adjust each item to take up 45% of the width */
+    button {
+        padding: 10px 20px;  /* Smaller button size for mobile */
+        font-size: 14px;      /* Adjust font size */
     }
 }
 
 @media (max-width: 480px) {
-    /* 1 column on phones */
-    .buttons {
-        flex-direction: column; /* Stack items in a single column */
+    .container {
+        padding: 10px; /* Even less padding for very small screens */
     }
 
-    .button-item {
-        flex: 1 0 90%; /* Adjust width for mobile screens */
-        margin-bottom: 10px; /* Add spacing between stacked buttons */
+    button {
+        padding: 8px 15px;  /* Smaller button size for mobile */
+        font-size: 14px;    /* Font size adjusted for small screens */
     }
 }
+
