@@ -23,7 +23,10 @@ body {
 /* Main container to hold buttons */
 .container {
     padding: 20px;
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;  /* Ensures the container takes up available space */
+    justify-content: space-between;  /* Ensures the footer stays at the bottom */
 }
 
 /* Flexbox grid layout for buttons */
@@ -31,6 +34,8 @@ body {
     display: flex;
     flex-wrap: wrap;  /* Allow items to wrap onto the next line */
     gap: 20px;  /* Space between items */
+    flex-grow: 1;  /* Makes the buttons container take up remaining space */
+    overflow-y: auto;  /* Ensures scrolling if necessary */
 }
 
 /* Button item styling */
