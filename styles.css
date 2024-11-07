@@ -50,6 +50,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: center;  /* Center content inside button items */
+    outline: 1px solid #333; /* Thinner outline, change color as needed */
 }
 
 /* Button styling */
