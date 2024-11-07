@@ -22,28 +22,20 @@ body {
 
 /* Main container to hold buttons */
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
     padding: 20px;
     flex-grow: 1;  /* Ensures the container takes up available space */
-    overflow: hidden;  /* Prevent overflow */
 }
 
-/* Flexbox grid layout */
+/* Flexbox grid layout for buttons */
 .buttons {
     display: flex;
-    flex-wrap: wrap;  /* Allow items to wrap to the next line */
+    flex-wrap: wrap;  /* Allow items to wrap onto the next line */
     gap: 20px;  /* Space between items */
-    width: 100%;
-    margin-bottom: 20px;
 }
 
-/* Button and input item styling */
+/* Button item styling */
 .button-item {
-    flex: 1 1 22%;  /* Each item takes up 22% of the container (4 items per row) */
-    min-width: 200px;  /* Ensures items don't get too small */
-    max-width: 250px;  /* Ensures items don't get too large */
+    flex: 1 1 calc(25% - 20px);  /* 4 items per row, accounting for the gap */
     text-align: center;
     background-color: white;
     border-radius: 8px;
@@ -51,8 +43,7 @@ body {
     padding: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
+    justify-content: center;  /* Center content inside button items */
 }
 
 /* Button styling */
@@ -113,22 +104,22 @@ footer button:hover {
 /* Responsive design */
 @media (max-width: 768px) {
     .buttons {
-        /* For tablets: 2 columns instead of 4 */
+        /* 2 columns on tablets */
         grid-template-columns: repeat(2, 1fr);
     }
 
     .button-item {
-        flex: 1 1 45%;  /* Adjust each item to take up 45% on tablets */
+        flex: 1 1 calc(50% - 20px);  /* Adjust each item to take up 50% on tablets */
     }
 }
 
 @media (max-width: 480px) {
     .buttons {
-        /* For phones: 1 column instead of 4 */
+        /* 1 column on phones */
         grid-template-columns: 1fr;
     }
 
     .button-item {
-        flex: 1 1 90%;  /* Adjust each item to take up 90% on phones */
+        flex: 1 1 calc(100% - 20px);  /* Adjust each item to take up 100% on phones */
     }
 }
