@@ -3,24 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Clipboard Manager</title>
+    <title>3x4 Button Grid</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="buttons">
-            <!-- 12 buttons with input fields below -->
-            <div class="button-group" id="buttonGroup">
-                <!-- Buttons will be dynamically created by JS -->
-            </div>
-        </div>
+        <!-- Grid of buttons and input fields -->
+        <div id="buttonGroup" class="buttons"></div>
+        
+        <!-- Save/Load Buttons -->
+        <footer>
+            <button id="saveButton">Save</button>
+            <button id="loadButton">Load</button>
+            <button id="saveFileButton">Save as File</button>
+            <input type="file" id="loadFileInput" style="display:none" />
+        </footer>
     </div>
 
-    <footer>
-        <button id="saveButton">Save State</button>
-        <button id="loadButton">Load State</button>
-    </footer>
-
-    <script src="script.js"></script>
+    <script src="scripts.js"></script>
 </body>
 </html>
