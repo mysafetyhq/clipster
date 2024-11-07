@@ -30,18 +30,20 @@ body {
     overflow: hidden;  /* Prevent overflow */
 }
 
-/* Buttons grid layout */
+/* Flexbox grid layout */
 .buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 20px;
+    display: flex;
+    flex-wrap: wrap;  /* Allow items to wrap to the next line */
+    gap: 20px;  /* Space between items */
     width: 100%;
     margin-bottom: 20px;
-    overflow-y: auto;  /* Enables scrolling if the grid items exceed available space */
 }
 
 /* Button and input item styling */
 .button-item {
+    flex: 1 1 22%;  /* Each item takes up 22% of the container (4 items per row) */
+    min-width: 200px;  /* Ensures items don't get too small */
+    max-width: 250px;  /* Ensures items don't get too large */
     text-align: center;
     background-color: white;
     border-radius: 8px;
@@ -49,8 +51,8 @@ body {
     padding: 15px;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    height: 100%;  /* Make sure each button item stays contained */
+    justify-content: space-between;
+    height: 100%;
 }
 
 /* Button styling */
@@ -111,12 +113,22 @@ footer button:hover {
 /* Responsive design */
 @media (max-width: 768px) {
     .buttons {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
+        /* For tablets: 2 columns instead of 4 */
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .button-item {
+        flex: 1 1 45%;  /* Adjust each item to take up 45% on tablets */
     }
 }
 
 @media (max-width: 480px) {
     .buttons {
-        grid-template-columns: 1fr; /* 1 column for phones */
+        /* For phones: 1 column instead of 4 */
+        grid-template-columns: 1fr;
+    }
+
+    .button-item {
+        flex: 1 1 90%;  /* Adjust each item to take up 90% on phones */
     }
 }
