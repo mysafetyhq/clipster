@@ -35,7 +35,8 @@ body {
 
 /* Button item styling */
 .button-item {
-    flex: 1 1 calc(25% - 20px);  /* 4 items per row, accounting for the gap */
+    flex: 1 0 21%;  /* Each item takes up 21% of the container (4 items per row) */
+    min-width: 180px;  /* Ensure they don't shrink too much */
     text-align: center;
     background-color: white;
     border-radius: 8px;
@@ -105,21 +106,21 @@ footer button:hover {
 @media (max-width: 768px) {
     .buttons {
         /* 2 columns on tablets */
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: row; /* Switch to row layout for better wrapping */
     }
 
     .button-item {
-        flex: 1 1 calc(50% - 20px);  /* Adjust each item to take up 50% on tablets */
+        flex: 1 0 45%;  /* Adjust each item to take up 45% of the width on tablets */
     }
 }
 
 @media (max-width: 480px) {
     .buttons {
         /* 1 column on phones */
-        grid-template-columns: 1fr;
+        flex-direction: column; /* Stack items in a single column on smaller screens */
     }
 
     .button-item {
-        flex: 1 1 calc(100% - 20px);  /* Adjust each item to take up 100% on phones */
+        flex: 1 0 90%;  /* Adjust each item to take up 90% on phones */
     }
 }
