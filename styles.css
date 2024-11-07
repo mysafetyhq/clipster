@@ -12,31 +12,35 @@ html, body {
     flex-direction: column;
 }
 
+/* Body setup to ensure the page is fully flexible */
 body {
     background-color: #f0f0f0;
-}
-
-/* Main container to center content */
-.container {
-    flex: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    padding: 10px;
+    justify-content: space-between;  /* Ensures footer stays at bottom */
 }
 
-/* Buttons layout (filling available space) */
+/* Main container to hold buttons */
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20px;
+    flex-grow: 1;  /* Ensures the container takes up available space */
+}
+
+/* Buttons grid layout */
 .buttons {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+    gap: 20px;
     width: 100%;
-    flex: 1; /* Allow buttons to take up available space */
-    overflow: auto;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Ensures buttons stretch and fill available space */
+    overflow-y: auto; /* Enables scrolling if needed */
 }
 
-/* Individual button and input field container */
+/* Button and input item styling */
 .button-item {
     text-align: center;
     background-color: white;
@@ -74,7 +78,7 @@ input {
     border: 1px solid #ddd;
 }
 
-/* Footer styling */
+/* Footer fixed at the bottom */
 footer {
     display: flex;
     justify-content: center;
@@ -82,7 +86,7 @@ footer {
     padding: 10px 0;
     background-color: #333;
     color: white;
-    position: fixed;
+    position: sticky;
     bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1);
@@ -105,12 +109,12 @@ footer button:hover {
 /* Responsive design */
 @media (max-width: 768px) {
     .buttons {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns */
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for tablets */
     }
 }
 
 @media (max-width: 480px) {
     .buttons {
-        grid-template-columns: 1fr; /* 1 column */
+        grid-template-columns: 1fr; /* 1 column for phones */
     }
 }
