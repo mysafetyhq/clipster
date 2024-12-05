@@ -13,10 +13,10 @@ html, body {
     font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
-    background-color: #f0f0f0;
+    background-color: #f4f7f6;
 }
 
-/* Container with a white background and proper centering */
+/* Container with a modern white background and centered content */
 .container {
     display: flex;
     flex-direction: column;
@@ -26,51 +26,96 @@ html, body {
     justify-content: center;
     align-items: center;
     background-color: white;  /* White background */
-    border-radius: 8px;       /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    border-radius: 12px;       /* Rounded corners */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    max-width: 600px;
+    width: 100%;
 }
 
-/* Buttons layout */
+/* Grid layout for buttons and input fields */
 .buttons {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 columns */
     gap: 20px;
-    justify-content: center; /* Center buttons horizontally */
+    width: 100%;
     margin-top: 20px;
+}
+
+.button-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Button styling */
 button {
-    padding: 12px 25px;
-    background-color: #4CAF50;
+    padding: 12px 20px;
+    background-color: #007BFF;
     color: white;
     border: none;
-    border-radius: 5px;
-    font-size: 16px;
+    border-radius: 8px;
+    font-size: 14px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Button shadow for depth */
+    width: 100%;
+    margin-bottom: 10px;
 }
 
 /* Button hover effect */
 button:hover {
-    background-color: #388E3C;
+    background-color: #0056b3;
     transform: translateY(-2px);
 }
 
-/* Button: active (clicked) effect */
+/* Button active (clicked) effect */
 button:active {
     transform: translateY(0);
-    background-color: #2C6B2F; /* Darker shade on click */
+    background-color: #004085; /* Darker shade on click */
 }
 
-/* Button focus effect */
-button:focus {
+/* Input field styling */
+input[type="text"] {
+    padding: 10px;
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+input[type="text"]:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.5); /* Focus ring for accessibility */
+    border-color: #007BFF; /* Focus border color */
 }
 
-/* Input file styling - hidden but accessible */
-input[type="file"] {
+/* Footer buttons layout */
+footer {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+    width: 100%;
+    justify-content: center;
+}
+
+/* Footer button styling */
+footer button {
+    padding: 12px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+footer button:hover {
+    background-color: #218838;
+}
+
+footer input[type="file"] {
     display: none;
 }
 
@@ -84,6 +129,10 @@ input[type="file"] {
         padding: 10px 20px;  /* Smaller button size for mobile */
         font-size: 14px;      /* Adjust font size */
     }
+
+    footer button {
+        padding: 10px 18px; /* Adjust footer button size */
+    }
 }
 
 @media (max-width: 480px) {
@@ -95,5 +144,8 @@ input[type="file"] {
         padding: 8px 15px;  /* Smaller button size for mobile */
         font-size: 14px;    /* Font size adjusted for small screens */
     }
-}
 
+    footer button {
+        padding: 8px 15px; /* Smaller footer button */
+    }
+}
