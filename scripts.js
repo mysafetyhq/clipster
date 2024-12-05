@@ -11,20 +11,39 @@ function createButtons() {
         const buttonItem = document.createElement('div');
         buttonItem.classList.add('button-item');
         
-        // Create the button
-        const button = document.createElement('button');
-        button.textContent = `Button ${i + 1}`;
-        button.addEventListener('click', () => copyToClipboard(i));
+        // Create the "Go to link" button
+        const goButton = document.createElement('button');
+        goButton.textContent = 'Go to Link';
+        goButton.addEventListener('click', () => goToLink(i));
+        
+        // Create the "Copy Link" button
+        const copyButton = document.createElement('button');
+        copyButton.textContent = 'Copy Link';
+        copyButton.addEventListener('click', () => copyToClipboard(i));
         
         // Create the input field
         const input = document.createElement('input');
+        input.type = 'text';
         input.placeholder = 'Enter URL';
         input.id = `input-${i}`;
         
-        buttonItem.appendChild(button);
+        buttonItem.appendChild(goButton);
+        buttonItem.appendChild(copyButton);
         buttonItem.appendChild(input);
         
         buttonGroup.appendChild(buttonItem);
+    }
+}
+
+// Go to the link in a new window
+function goToLink(index) {
+    const inputField = document.getElementById(`input-${index}`);
+    const url = inputField.value;
+
+    if (url) {
+        window.open(url, '_blank');
+    } else {
+        alert('No URL to go to!');
     }
 }
 
